@@ -1,14 +1,20 @@
 const BinaryServer = require('binaryjs').BinaryServer
 const mongojs = require('mongojs')
+const http = require('http')
+const express = require('express')
 const fs = require('fs')
 const path = require('path')
 const channelModel = require('./models/channel')
 
-const port = process.env.PORT || 9001
-const binaryServer = BinaryServer({port})
+const app = express()
 const audioPath = path.join(__dirname, '../audio')
+app.use('/audio', express.static(audioPath))
+const server = http.createServer(app)
 
-binaryServer.on('connection', function(client) {
+const port = process.env.PORT || 9001
+const bs = BinaryServer({server})
+
+bs.on('connection', function(client) {
   console.log('new binary connection')
 
   client.on('stream', function(stream, meta) {
@@ -31,4 +37,9 @@ binaryServer.on('connection', function(client) {
   })
 })
 
-console.log('INSTABUDDY BINARY SOCKET Started.')
+server.listen(port, () => {
+  console.log(`
+    INSTABUDDY BINARY SOCKET Started on port ${port}
+    AUDIO PATH: ${audioPath}
+  `)
+})
