@@ -1,0 +1,35 @@
+{
+  "name": "instabuddy-binary-socket",
+  "version": "1.0.0",
+  "description": "Binary socket for InstaBuddy.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "standard-focus",
+    "start": "node src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codealchemist/instabuddy-binary-socket.git"
+  },
+  "keywords": [
+    "instabuddy",
+    "audio",
+    "fun",
+    "instant",
+    "button",
+    "generator"
+  ],
+  "author": "Alberto Miranda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codealchemist/instabuddy-binary-socket/issues"
+  },
+  "homepage": "https://github.com/codealchemist/instabuddy-binary-socket#readme",
+  "devDependencies": {
+    "standard-focus": "^1.1.2"
+  },
+  "dependencies": {
+    "binaryjs": "^0.2.1",
+    "mongojs": "^2.4.1"
+  }
+}
