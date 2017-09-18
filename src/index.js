@@ -30,3 +30,5 @@ binaryServer.on('connection', function(client) {
     })
   })
 })
+
+console.log('INSTABUDDY BINARY SOCKET Started.')
